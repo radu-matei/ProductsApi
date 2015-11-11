@@ -26,5 +26,18 @@ namespace ProductsApi.Controllers
         {
             return productsRepository.GetById(id);
         }
+
+        [HttpDelete]
+        public void DeleteProduct(int id)
+        {
+            productsRepository.Delete(id);
+        }
+
+        [HttpPost]
+        public void UpdateProduct(Product product)
+        {
+            productsRepository.Update(product);
+        }
+
     }
 }
