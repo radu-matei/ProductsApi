@@ -10,19 +10,19 @@ namespace ProductsApi.Controllers
         private static ProductsRepository productsRepository = new ProductsRepository();
 
         [HttpGet]
-        public List<Product> GetProducts()
+        public List<Product> GetAllProducts()
         {
             return productsRepository.GetProducts();
         }
 
         [HttpPost]
-        public void Create(Product product)
+        public void CreateProduct(Product product)
         {
             productsRepository.Add(product);
         }
 
         [HttpGet]
-        public Product GetById(int id)
+        public Product GetProductById(int id)
         {
             return productsRepository.GetById(id);
         }
