@@ -21,6 +21,7 @@ namespace ProductsApi.DAL
         public void Delete(int id)
         {
             var product = Products.FirstOrDefault(p => p.Id == id);
+
             if (product != null)
                 Products.Remove(product);
         }
@@ -28,6 +29,7 @@ namespace ProductsApi.DAL
         public void Update(Product product)
         {
             var productToUpdate = Products.FirstOrDefault(p => p.Id == product.Id);
+
             if (productToUpdate != null)
                 productToUpdate = product;
         }
@@ -41,9 +43,9 @@ namespace ProductsApi.DAL
         {
             Products = new List<Product>()
             {
-                new Product() {Id = 1, Category = "Food", Name = "Onion", Price = 2 },
-                new Product() {Id = 2, Category = "Electronics", Name = "Keyboard", Price = 23 },
-                new Product() {Id = 3, Category = "Electronics", Name = "Mouse", Price = 10 }
+                new Product() { Id = 1, Category = "Food", Name = "Onion", Price = 2 },
+                new Product() { Id = 2, Category = "Electronics", Name = "Keyboard", Price = 23 },
+                new Product() { Id = 3, Category = "Electronics", Name = "Mouse", Price = 10 }
             };
         }
     }
