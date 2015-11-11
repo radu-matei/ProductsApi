@@ -31,7 +31,8 @@ namespace ProductsApi.DAL
             var productToUpdate = Products.FirstOrDefault(p => p.Id == product.Id);
 
             if (productToUpdate != null)
-                productToUpdate = product;
+                productToUpdate.UpdateProduct(product);
+                
         }
 
         public Product GetById(int id)
