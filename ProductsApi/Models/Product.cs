@@ -18,5 +18,13 @@
         public Product()
         {
         }
+
+        public void UpdateProduct(Product product)
+        {
+            Id = product.Id;
+            Name = product.Name;
+            Category = product.Category;
+            Price = product.Price;
+        }
     }
 }
