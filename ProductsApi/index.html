@@ -19,7 +19,7 @@
     <script type="text/javascript">
 
         $.ajax({
-            url: 'http://localhost:6745/api/Products/GetAllProducts',
+            url: '/api/Products/GetAllProducts',
             method: 'GET',
             dataType: 'json',
             success: populateProductList
@@ -41,7 +41,7 @@
             };
 
             $.ajax({
-                url: 'http://localhost:6745/api/Products/CreateProduct',
+                url: '/api/Products/CreateProduct',
                 type: 'POST',
                 data: product
             });
