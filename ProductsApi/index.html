@@ -5,9 +5,12 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-    <script src="Scripts/jquery-1.11.3.min.js"></script>
 
-    <ul id="productsList"></ul>
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="signalr/hubs"></script>
+
+     <ul id="productsList"></ul>
 
     <input id="idInput" placeholder="Enter the Id" />
     <input id="nameInput" placeholder="Enter the name" />
@@ -17,6 +20,12 @@
     <button id="createButton">Create product!</button>
 
     <script type="text/javascript">
+
+        var hub = $.connection.productsHub;
+
+        hub.client.productAdded = function (product) {
+            $("#productsList").append('<li id=product' + product.Id + '>' + product.Name + '</li>');
+        };
 
         $.ajax({
             url: '/api/Products/GetAllProducts',
@@ -46,7 +55,10 @@
                 data: product
             });
 
-          });
+        });
+
+        $.connection.hub.logging = true;
+        $.connection.hub.start();
 
     </script>
 </body>
