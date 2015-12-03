@@ -2,7 +2,7 @@
 using Owin;
 using Microsoft.AspNet.SignalR;
 
-[assembly: OwinStartup(typeof(ProductsApi.Startup1))]
+[assembly: OwinStartup(typeof(ProductsApi.Startup))]
 
 namespace ProductsApi
 {
