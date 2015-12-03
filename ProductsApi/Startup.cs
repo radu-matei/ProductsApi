@@ -6,7 +6,7 @@ using Microsoft.AspNet.SignalR;
 
 namespace ProductsApi
 {
-    public class Startup1
+    public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
