@@ -1,4 +1,5 @@
-﻿using ProductsApi.DAL;
+﻿using Microsoft.AspNet.SignalR;
+using ProductsApi.DAL;
 using ProductsApi.Models;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -19,6 +20,9 @@ namespace ProductsApi.Controllers
         public void CreateProduct(Product product)
         {
             productsRepository.Add(product);
+
+            var hub = GlobalHost.ConnectionManager.GetHubContext<ProductsHub>();
+            hub.Clients.All.productAdded(product);
         }
 
         [HttpGet]
