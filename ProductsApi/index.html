@@ -6,8 +6,8 @@
 </head>
 <body>
 
-    <script src="Scripts/jquery-1.6.4.min.js"></script>
-    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.0.min.js"></script>
     <script src="signalr/hubs"></script>
 
      <ul id="productsList"></ul>
@@ -19,47 +19,6 @@
 
     <button id="createButton">Create product!</button>
 
-    <script type="text/javascript">
-
-        var hub = $.connection.productsHub;
-
-        hub.client.productAdded = function (product) {
-            $("#productsList").append('<li id=product' + product.Id + '>' + product.Name + '</li>');
-        };
-
-        $.ajax({
-            url: '/api/Products/GetAllProducts',
-            method: 'GET',
-            dataType: 'json',
-            success: populateProductList
-        });
-
-        function populateProductList(products) {
-            $.each(products, function (index) {
-                var product = products[index];
-                $("#productsList").append('<li id=product'+ product.Id +'>' + product.Name + '</li>');
-            });
-        }
-
-        $("#createButton").click(function () {
-            var product = {
-                Id: $("#idInput").val(),
-                Name: $("#nameInput").val(),
-                Category: $("#categoryInput").val(),
-                Price: $("#priceInput").val()
-            };
-
-            $.ajax({
-                url: '/api/Products/CreateProduct',
-                type: 'POST',
-                data: product
-            });
-
-        });
-
-        $.connection.hub.logging = true;
-        $.connection.hub.start();
-
-    </script>
+    <script src="Scripts/products.js"></script>
 </body>
 </html>
